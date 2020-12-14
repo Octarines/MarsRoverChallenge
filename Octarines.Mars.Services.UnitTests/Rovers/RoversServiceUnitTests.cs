@@ -179,7 +179,7 @@ namespace Octarines.Mars.Services.UnitTests.Rovers
         public void InitializeNewRover_ValidPositionString_RoverObject()
         {
             // arrange
-            string positionString = "8 7 E";
+            string positionString = "8 17 E";
 
             // act
             Result<Rover> result = _roverService.InitializeNewRover(positionString);
@@ -191,7 +191,7 @@ namespace Octarines.Mars.Services.UnitTests.Rovers
 
             Assert.IsNotNull(rover);
             Assert.AreEqual(8, rover.LocationX);
-            Assert.AreEqual(7, rover.LocationY);
+            Assert.AreEqual(17, rover.LocationY);
             Assert.AreEqual(Bearing.East, rover.Bearing);            
         }
 
@@ -343,6 +343,20 @@ namespace Octarines.Mars.Services.UnitTests.Rovers
                 "8 8",
                 "3 6 S"
             };
+
+            // act
+            Result<IEnumerable<string>> result = _roverService.ExplorePlateau(instructions);
+
+            // assert
+            Assert.IsTrue(result.HasErrors);
+            Assert.IsTrue(result is InvalidResult<IEnumerable<string>>);
+        }
+
+        [TestMethod]
+        public void ExplorePlateau_NullInstructions_InvalidResult()
+        {
+            // arrange
+            List<string> instructions = null;
 
             // act
             Result<IEnumerable<string>> result = _roverService.ExplorePlateau(instructions);

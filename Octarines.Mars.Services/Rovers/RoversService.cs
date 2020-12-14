@@ -13,16 +13,22 @@ namespace Octarines.Mars.Services.Rovers
     {        
         public Result<IEnumerable<string>> ExplorePlateau(IEnumerable<string> instructions)
         {
+            if (instructions == null)
+            {
+                return new InvalidResult<IEnumerable<string>>(ValidationErrors.InstructionsNull);
+            }
+
             List<string> roverFinalPositions = new List<string>();
             List<string> instructionsList = instructions.ToList();
 
             //validate that instructions has at least 3 lines (one for plateau size and two for at least one rover) and an odd number after that (2 more per rover)
-            if(instructionsList.Count() < 3 || instructionsList.Count() % 2 == 0)
+            if (instructionsList.Count() < 3 || instructionsList.Count() % 2 == 0)
             {
                 return new InvalidResult<IEnumerable<string>>(ValidationErrors.RoverInstructionsLines);
             }
 
             Result<Coordinates> plateauResult = ParsePlateuaDetails(instructionsList[0]);
+
             if (plateauResult.HasErrors)
             {
                 return new InvalidResult<IEnumerable<string>>(plateauResult.Errors);
@@ -79,12 +85,12 @@ namespace Octarines.Mars.Services.Rovers
 
             if(!int.TryParse(plateauSize[0], out sizeX))
             {
-                return new InvalidResult<Coordinates>(string.Format(ValidationErrors.PlateauSizeXChar,plateauSize[0]));
+                return new InvalidResult<Coordinates>(string.Format(ValidationErrors.PlateauSizeXValue,plateauSize[0]));
             }
 
             if (!int.TryParse(plateauSize[1], out sizeY))
             {
-                return new InvalidResult<Coordinates>(string.Format(ValidationErrors.PlateauSizeYChar, plateauSize[1]));
+                return new InvalidResult<Coordinates>(string.Format(ValidationErrors.PlateauSizeYValue, plateauSize[1]));
             }
 
             return new SuccessResult<Coordinates>(new Coordinates() { X = sizeX, Y = sizeY });
@@ -110,12 +116,12 @@ namespace Octarines.Mars.Services.Rovers
 
             if (!int.TryParse(roverPosition[0], out positionX))
             {
-                return new InvalidResult<Rover>(string.Format(ValidationErrors.RoverPositionXChar, roverPosition[0]));
+                return new InvalidResult<Rover>(string.Format(ValidationErrors.RoverPositionXValue, roverPosition[0]));
             }
 
             if (!int.TryParse(roverPosition[1], out positionY))
             {
-                return new InvalidResult<Rover>(string.Format(ValidationErrors.RoverPositionYChar, roverPosition[1]));
+                return new InvalidResult<Rover>(string.Format(ValidationErrors.RoverPositionYValue, roverPosition[1]));
             }
 
             switch (roverPosition[2].ToLower())

@@ -117,16 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="InstructionsNull" xml:space="preserve">
+    <value>Instructions list must contain values</value>
+  </data>
   <data name="PlateauSizeNullOrEmpty" xml:space="preserve">
     <value>Plateau size string must contain a value.</value>
   </data>
   <data name="PlateauSizeNumber" xml:space="preserve">
     <value>Plateua size must contain 2 values</value>
   </data>
-  <data name="PlateauSizeXChar" xml:space="preserve">
+  <data name="PlateauSizeXValue" xml:space="preserve">
     <value>X coordinate contains invalid character: '{0}'. Value must be an integer.</value>
   </data>
-  <data name="PlateauSizeYChar" xml:space="preserve">
+  <data name="PlateauSizeYValue" xml:space="preserve">
     <value>Y coordinate contains invalid character: '{0}'. Value must be an integer.</value>
   </data>
   <data name="RoverInstructionsChar" xml:space="preserve">
@@ -150,10 +153,10 @@
   <data name="RoverPositionNumber" xml:space="preserve">
     <value>Rover position must contain 3 values.</value>
   </data>
-  <data name="RoverPositionXChar" xml:space="preserve">
+  <data name="RoverPositionXValue" xml:space="preserve">
     <value>Rover X position contains invalid character: '{0}'. Value must be an integer.</value>
   </data>
-  <data name="RoverPositionYChar" xml:space="preserve">
+  <data name="RoverPositionYValue" xml:space="preserve">
     <value>Rover Y position contains invalid character: '{0}'. Value must be an integer.</value>
   </data>
 </root>

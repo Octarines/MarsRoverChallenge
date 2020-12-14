@@ -61,6 +61,15 @@ namespace Octarines.Mars.Models.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Instructions list must contain values.
+        /// </summary>
+        public static string InstructionsNull {
+            get {
+                return ResourceManager.GetString("InstructionsNull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plateau size string must contain a value..
         /// </summary>
         public static string PlateauSizeNullOrEmpty {
@@ -81,18 +90,18 @@ namespace Octarines.Mars.Models.Resources {
         /// <summary>
         ///   Looks up a localized string similar to X coordinate contains invalid character: &apos;{0}&apos;. Value must be an integer..
         /// </summary>
-        public static string PlateauSizeXChar {
+        public static string PlateauSizeXValue {
             get {
-                return ResourceManager.GetString("PlateauSizeXChar", resourceCulture);
+                return ResourceManager.GetString("PlateauSizeXValue", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Y coordinate contains invalid character: &apos;{0}&apos;. Value must be an integer..
         /// </summary>
-        public static string PlateauSizeYChar {
+        public static string PlateauSizeYValue {
             get {
-                return ResourceManager.GetString("PlateauSizeYChar", resourceCulture);
+                return ResourceManager.GetString("PlateauSizeYValue", resourceCulture);
             }
         }
         
@@ -162,18 +171,18 @@ namespace Octarines.Mars.Models.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Rover X position contains invalid character: &apos;{0}&apos;. Value must be an integer..
         /// </summary>
-        public static string RoverPositionXChar {
+        public static string RoverPositionXValue {
             get {
-                return ResourceManager.GetString("RoverPositionXChar", resourceCulture);
+                return ResourceManager.GetString("RoverPositionXValue", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Rover Y position contains invalid character: &apos;{0}&apos;. Value must be an integer..
         /// </summary>
-        public static string RoverPositionYChar {
+        public static string RoverPositionYValue {
             get {
-                return ResourceManager.GetString("RoverPositionYChar", resourceCulture);
+                return ResourceManager.GetString("RoverPositionYValue", resourceCulture);
             }
         }
     }
